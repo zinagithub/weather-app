@@ -1,0 +1,58 @@
+body {
+	background: #a29bfe
+}
+.container {
+	width : 80%;
+	color : black;
+	margin : 0 auto;
+}
+.navBar {
+
+}
+.title {
+	float : left;
+}
+.title p {
+	font-style: italic;
+}
+form {
+	float : right
+}
+form input {
+	margin-top : 9px
+}
+form button {
+	height:30px;
+	
+}
+button {
+	font:bold 13px Arial;
+	background:#478bf9;
+	color:#fff;
+	border-radius:2px;
+	border:none;
+}
+#infoWeather{
+	color : black;
+	text-align: center;
+	width : 300px;
+	height: 350px;
+	position: relative;
+	margin : 0 auto;
+	top : 70px;
+	border : 1px solid #8c8383;
+	border-radius: 15px;
+	background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+}
+#cityName{
+	clear : both;
+}
+
+:required {
+   border: 2px dotted orange;
+}
+
+#unit {
+	color : black;
+	cursor: pointer;
+}

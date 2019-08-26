@@ -1,0 +1,35 @@
+<!Doctype html>
+<html>
+  <head>
+    <title>Weather App</title>
+    
+  </head>
+  <body>
+  	<div class = "container">
+  		<div class = "navBar">
+  			<div class = "title">
+  				<p>Weather Application</p>
+  			</div>
+  			<form>
+  				<input type="search" placeholder="Your city name" name="the_city" id = "the_city" required="required">
+  				<button id = "the_search" onclick = "mySearch()">Search</button>
+			</form>
+		</div>	
+			<div id ="infoWeather">
+
+				<p id = "cityName"></p>
+				<p id = "theDate"></p>
+				<img src="" alt="">
+				<p id = "description"></p>
+				<p id = "temp"></p>
+				<p id = "tempo1" style = "display : none"></p>
+				<p id = "tempo2" style = "display : none"></p>
+				<button id = "unit" onclick="changeUnit()"></button>
+			</div>
+  		
+  		
+  	</div>
+  	<script src="clickProc.js"></script>
+    <script src="bundle.js"></script>
+  </body>
+</html>
