@@ -14,13 +14,11 @@ const changeUnit = () => {
   const t2 = document.getElementById('tempo2');
 
   if (unit.innerHTML === '°C') {
-	const t = parseInt(temperature.innerHTML,10);
-	temperature.innerHTML = t2.innerHTML
-	unit.innerHTML = 'F';
+    temperature.innerHTML = t2.innerHTML
+    unit.innerHTML = 'F';
   } else {
-    const t = parseInt(temperature.innerHTML,10);
-	temperature.innerHTML = t1.innerHTML
-	unit.innerHTML = '°C';
+    temperature.innerHTML = t1.innerHTML
+    unit.innerHTML = '°C';
   }
 };
 // T(°C) = (T(°F) -32) * 5/9
