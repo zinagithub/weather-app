@@ -3,6 +3,24 @@ import Weather from './data';
 import { gotData } from './api_data';
 import { api, myKey } from './weather_data';
 
+const butSearch = document.getElementById('the_search');
+//butSearch.addEventListener('click', mySearch);
+const myCity = document.getElementById('the_city') ;
+
+
+const mySearch = () => { 
+  if (document.getElementById('the_city').checkValidity()) {
+    const myCity = document.getElementById('the_city').value;
+    const url = `${api}q=${myCity}${myKey}`;
+    /*const myCitySerialized = JSON.stringify(data);
+    localStorage.setItem('myCityW', myCitySerialized);*/
+    gotData(url).then((response) => {
+      displayData(response);
+    }).catch((e) => {
+      console.log(e);
+    });
+  }
+};
 
 function showByLocation() {
   navigator.geolocation.getCurrentPosition((position) => {
@@ -35,7 +53,7 @@ function displayData(inf) {
 }
 
 function showByCity() {
-  const url = getMyCityW();
+  /*const url = getMyCityW();
   if (url) {
     fetch(url, { mode: 'cors' })
       .then((response) => response.json())
@@ -44,8 +62,10 @@ function showByCity() {
       });
   } else {
     showByLocation();
-  }
+  }*/
+  myCity.placeholder = 'the city';
+  showByLocation();
+  butSearch.addEventListener('click', mySearch);
 }
-
 
 showByCity();
