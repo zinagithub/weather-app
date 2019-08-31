@@ -1,7 +1,5 @@
 function gotData(url) {
   return fetch(url, { mode: 'cors' })
-    .then (function (response) {
-      return response.json();
-    });
+    .then((response) => response.json());
 }
-export {gotData};
+export { gotData };

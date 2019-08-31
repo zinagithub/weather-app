@@ -4,20 +4,19 @@ import { gotData } from './api_data';
 import { api, myKey } from './weather_data';
 
 const butSearch = document.getElementById('the_search');
-//butSearch.addEventListener('click', mySearch);
-const myCity = document.getElementById('the_city') ;
+const myCity = document.getElementById('the_city');
 
-
-const mySearch = () => { 
+function handleError(e) {
+  alert(e);
+}
+const mySearch = () => {
   if (document.getElementById('the_city').checkValidity()) {
     const myCity = document.getElementById('the_city').value;
     const url = `${api}q=${myCity}${myKey}`;
-    /*const myCitySerialized = JSON.stringify(data);
-    localStorage.setItem('myCityW', myCitySerialized);*/
     gotData(url).then((response) => {
       displayData(response);
     }).catch((e) => {
-      console.log(e);
+      handleError(e);
     });
   }
 };
@@ -30,40 +29,18 @@ function showByLocation() {
     gotData(url).then((response) => {
       displayData(response);
     }).catch((e) => {
-      console.log(e);
+      handleError(e);
     });
   });
 }
-
-
-const getMyCityW = () => {
-  let myCityDeserialized;
-  if (localStorage.getItem('myCityW')) {
-    myCityDeserialized = JSON.parse(localStorage.getItem('myCityW'));
-  }
-  return myCityDeserialized;
-};
-
 
 function displayData(inf) {
   const obj = new Weather(inf.name, inf.weather[0].main, inf.weather[0].description,
     inf.weather[0].icon, inf.main.temp);
   obj.displayDomWeather();
-  localStorage.clear();
 }
 
 function showByCity() {
-  /*const url = getMyCityW();
-  if (url) {
-    fetch(url, { mode: 'cors' })
-      .then((response) => response.json())
-      .then((response) => {
-        displayData(response);
-      });
-  } else {
-    showByLocation();
-  }*/
-  myCity.placeholder = 'the city';
   showByLocation();
   butSearch.addEventListener('click', mySearch);
 }
