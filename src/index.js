@@ -29,14 +29,14 @@ function showByLocation() {
     const lat = position.coords.latitude;
     const long = position.coords.longitude;
     const url = `${api}lat=${lat}&lon=${long}${myKey}`;
-    urlData(url)
+    urlData(url);
   });
 }
 
 function displayData(inf) {
   const obj = new Weather(inf.name, inf.weather[0].main, inf.weather[0].description,
     inf.weather[0].icon, inf.main.temp);
-  obj.displayDomWeather();
+  obj.displayWeather();
 }
 
 function showByCity() {
