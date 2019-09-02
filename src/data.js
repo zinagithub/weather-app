@@ -22,13 +22,13 @@ export default class Weather {
     theDate.innerHTML = formatDate(this.dueDate);
     desc.innerHTML = this.description;
     img.src = `http://openweathermap.org/img/w/${this.icon}.png`;
-    const kCel = kelvinCel(this.temp);//Math.trunc(this.temp - 273);    convert kelvin to celsus
+    const kCel = kelvinCel(this.temp);
     t1.innerHTML = kCel;
-    t2.innerHTML = celFara(kCel);//parseInt((kCel * 9) / 5 + 32, 10);
+    t2.innerHTML = celFara(kCel);
     temperature.innerHTML = kCel;
     const unit = document.getElementById('unit');
     unit.innerHTML = '°C';
-    unit.addEventListener('click',changeUnit)
+    unit.addEventListener('click',changeUnit);
   }
 }
 
@@ -40,17 +40,17 @@ const changeUnit = () => {
   const t2 = document.getElementById('tempo2');
 
   if (unit.innerHTML === '°C') {
-    temperature.innerHTML = t2.innerHTML
+    temperature.innerHTML = t2.innerHTML;
     unit.innerHTML = 'F';
   } else {
-    temperature.innerHTML = t1.innerHTML
+    temperature.innerHTML = t1.innerHTML;
     unit.innerHTML = '°C';
   }
 };
 function kelvinCel(val) {
   return Math.trunc(val - 273);
 }
-function celFara (val) {
+function celFara(val) {
   return parseInt((val * 9) / 5 + 32, 10);
 }
 

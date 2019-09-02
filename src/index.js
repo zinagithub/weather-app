@@ -9,15 +9,18 @@ const myCity = document.getElementById('the_city');
 function handleError(e) {
   alert(e);
 }
-const mySearch = () => {
+function urlData(url) {
+  gotData(url).then((response) => {
+    displayData(response);
+  }).catch((e) => {
+    handleError(e);
+  });
+}
+const citySearch = () => {
   if (document.getElementById('the_city').checkValidity()) {
     const myCity = document.getElementById('the_city').value;
     const url = `${api}q=${myCity}${myKey}`;
-    gotData(url).then((response) => {
-      displayData(response);
-    }).catch((e) => {
-      handleError(e);
-    });
+    urlData(url)
   }
 };
 
@@ -26,11 +29,7 @@ function showByLocation() {
     const lat = position.coords.latitude;
     const long = position.coords.longitude;
     const url = `${api}lat=${lat}&lon=${long}${myKey}`;
-    gotData(url).then((response) => {
-      displayData(response);
-    }).catch((e) => {
-      handleError(e);
-    });
+    urlData(url)
   });
 }
 
@@ -42,7 +41,7 @@ function displayData(inf) {
 
 function showByCity() {
   showByLocation();
-  butSearch.addEventListener('click', mySearch);
+  butSearch.addEventListener('click', citySearch);
 }
 
 showByCity();
