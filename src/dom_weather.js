@@ -1,25 +1,3 @@
-export default function domWeather(city, dueDate, description, icon, t) {
-  const card = document.getElementById('infoWeather');
-  card.style.display = 'block';
-  const info1 = document.getElementById('cityName');
-  const img = document.querySelector('img');
-  const temperature = document.getElementById('temp');
-  const t1 = document.getElementById('tempo1');
-  const t2 = document.getElementById('tempo2');
-  const theDate = document.getElementById('theDate');
-  const desc = document.getElementById('description');
-  info1.innerHTML = `Weather in ${city}`;
-  theDate.innerHTML = formatDate(dueDate);
-  desc.innerHTML = description;
-  img.src = `http://openweathermap.org/img/w/${icon}.png`;
-  const kCel = kelvinCel(t);
-  t1.innerHTML = kCel;
-  t2.innerHTML = celFara(kCel);
-  temperature.innerHTML = kCel;
-  const unit = document.getElementById('unit');
-  unit.innerHTML = '°C';
-  unit.addEventListener('click', changeUnit);
-}
 const changeUnit = () => {
   const unit = document.getElementById('unit');
   const temperature = document.getElementById('temp');
@@ -54,4 +32,27 @@ function formatDate(date) {
   const year = date.getFullYear();
 
   return `${day} ${monthNames[monthIndex]} ${year}`;
+}
+
+export default function domWeather(city, dueDate, description, icon, t) {
+  const card = document.getElementById('infoWeather');
+  card.style.display = 'block';
+  const info1 = document.getElementById('cityName');
+  const img = document.querySelector('img');
+  const temperature = document.getElementById('temp');
+  const t1 = document.getElementById('tempo1');
+  const t2 = document.getElementById('tempo2');
+  const theDate = document.getElementById('theDate');
+  const desc = document.getElementById('description');
+  info1.innerHTML = `Weather in ${city}`;
+  theDate.innerHTML = formatDate(dueDate);
+  desc.innerHTML = description;
+  img.src = `http://openweathermap.org/img/w/${icon}.png`;
+  const kCel = kelvinCel(t);
+  t1.innerHTML = kCel;
+  t2.innerHTML = celFara(kCel);
+  temperature.innerHTML = kCel;
+  const unit = document.getElementById('unit');
+  unit.innerHTML = '°C';
+  unit.addEventListener('click', changeUnit);
 }

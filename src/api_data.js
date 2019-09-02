@@ -2,4 +2,4 @@ function gotData(url) {
   return fetch(url, { mode: 'cors' })
     .then((response) => response.json());
 }
-export { gotData };
+export default gotData;

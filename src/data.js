@@ -1,4 +1,5 @@
-import domWeather from './dom_weather'
+import domWeather from './dom_weather';
+
 export default class Weather {
   constructor(city, main, description, icon, temp) {
     this.city = city;
@@ -13,5 +14,3 @@ export default class Weather {
     domWeather(this.city, this.dueDate, this.description, this.icon, this.temp);
   }
 }
-
-
