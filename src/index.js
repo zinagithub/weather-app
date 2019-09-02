@@ -7,7 +7,11 @@ const butSearch = document.getElementById('the_search');
 const myCity = document.getElementById('the_city');
 
 function handleError(e) {
-  alert(e);
+  if (e.message === '404') {
+    alert('City not found');
+  } else {
+    alert('Something went wrong');
+  }
 }
 function urlData(url) {
   gotData(url).then((response) => {
