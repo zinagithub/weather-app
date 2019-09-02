@@ -56,3 +56,19 @@ button {
 	color : black;
 	cursor: pointer;
 }
+.alert {
+	text-align: center;
+	display: none;
+	width : 400px;
+	height: 150px;
+	position : absolute;
+	top : 20%;
+	left : 40%;
+	background: white;
+	border : 1px solid #8c8383;
+	border-radius: 15px;
+}
+.alert button {
+	width: 80px;
+	height: 30px;
+}

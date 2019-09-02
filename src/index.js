@@ -6,11 +6,16 @@ import { api, myKey } from './weather_data';
 const butSearch = document.getElementById('the_search');
 
 function handleError(e) {
+  const alertBox = document.querySelector('.alert');
+  alertBox.style.display = 'block';
   if (e.message === '404') {
-    alert('City not found');
+    document.querySelector('.alert p').innerHTML = 'City not found';
   } else {
-    alert('Something went wrong');
+    document.querySelector('.alert p').innerHTML = 'Something went wrong';
   }
+  document.querySelector('.alert button').addEventListener('click', () => {
+    alertBox.style.display = 'none';
+  });
 }
 
 function displayData(inf) {
