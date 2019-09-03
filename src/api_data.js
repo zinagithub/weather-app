@@ -1,5 +1,4 @@
-function gotData(url) {
+export default function gotData(url) {
   return fetch(url, { mode: 'cors' })
     .then((response) => response.json());
 }
-export default gotData;
