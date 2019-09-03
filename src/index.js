@@ -2,21 +2,9 @@ import './style.css';
 import Weather from './data';
 import gotData from './api_data';
 import { api, myKey } from './weather_data';
+import handleError from './errorsDom';
 
 const butSearch = document.getElementById('the_search');
-
-function handleError(e) {
-  const alertBox = document.querySelector('.alert');
-  alertBox.style.display = 'block';
-  if (e.message === '404') {
-    document.querySelector('.alert p').innerHTML = 'City not found';
-  } else {
-    document.querySelector('.alert p').innerHTML = 'Something went wrong';
-  }
-  document.querySelector('.alert button').addEventListener('click', () => {
-    alertBox.style.display = 'none';
-  });
-}
 
 function displayData(inf) {
   const obj = new Weather(inf.name, inf.weather[0].main, inf.weather[0].description,
