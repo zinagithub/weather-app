@@ -8,14 +8,14 @@
   	<div class = "container">
   		<div class = "navBar">
   			<div class = "title">
-  				<p>Weather Application</p>
+  				<p>My Weather Application</p>
   			</div>
-  			<form>
+  			<div class ="myForm">
   				<input type="search" placeholder="Your city name" name="the_city" id = "the_city" required="required">
-  				<button id = "the_search" onclick = "mySearch()">Search</button>
-			</form>
+          <button id = "the_search" >Search</button>
+			  </div>
 		</div>	
-			<div id ="infoWeather">
+			<div id ="infoWeather" style = "display: none">
 
 				<p id = "cityName"></p>
 				<p id = "theDate"></p>
@@ -24,12 +24,15 @@
 				<p id = "temp"></p>
 				<p id = "tempo1" style = "display : none"></p>
 				<p id = "tempo2" style = "display : none"></p>
-				<button id = "unit" onclick="changeUnit()"></button>
+        <button id = "unit"></button>
 			</div>
-  		
+  		<div class = "alert">
+        <h3>Alert</h3>  
+        <p></p>
+        <button id = "alertBut">OK</button>
+      </div>
   		
   	</div>
-  	<script src="clickProc.js"></script>
     <script src="bundle.js"></script>
   </body>
 </html>
